@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WOW Protocol sky theme dashboard">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet">
+  <link href="./dist/output.css" rel="stylesheet">
+  <title>WOW Protocol — Sky Edition</title>
+</head>
+
+<body
+  class="theme-sky min-h-screen overflow-x-hidden bg-[#070d1d] font-mono text-slate-100 selection:bg-sky-400 selection:text-slate-950">
+  <div
+    class="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_-10%,rgba(56,189,248,.18),transparent_38%),radial-gradient(circle_at_90%_45%,rgba(99,102,241,.13),transparent_30%)]">
+  </div>
+
+  <header class="sticky top-0 z-50 border-b border-sky-300/10 bg-[#070d1d]/85 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-310 flex-wrap items-center gap-3 px-4 py-3 md:flex-nowrap md:px-7">
+      <a href="#" class="flex items-center gap-2.5"><span
+          class="grid size-9 place-items-center rounded-xl bg-linear-to-br from-sky-300 to-indigo-500 shadow-[0_0_22px_rgba(56,189,248,.35)]">🤯</span><span
+          class="font-display text-sm font-black tracking-[.12em] text-sky-200 md:text-lg">WOW PROTOCOL<br><small
+            class="text-[9px] tracking-[.2em] text-indigo-300">SKY NETWORK</small></span></a>
+      <div class="grow"></div>
+      <a href="#about" class="sky-ghost hidden sm:block">WHY WOW</a><a href="#blocks"
+        class="sky-ghost hidden sm:block">GALLERY</a>
+      <div
+        class="hidden items-center gap-2 rounded-full border border-sky-300/20 bg-sky-400/5 px-3 py-1.5 text-xs text-sky-200 lg:flex">
+        <span class="size-2 animate-pulse rounded-full bg-amber-300 shadow-[0_0_9px_#fcd34d]"></span>BSC TESTNET</div>
+      <button id="connectBtn" class="sky-button">CONNECT WALLET</button>
+    </nav>
+  </header>
+
+  <main class="mx-auto max-w-295 px-3.5 pb-20 pt-5 md:px-6 md:pt-7">
+    <section class="grid grid-cols-2 gap-2.5 md:grid-cols-4 md:gap-3">
+      <article class="sky-stat">
+        <p>ACTIVE BLOCKS</p><strong>4,291</strong>
+      </article>
+      <article class="sky-stat">
+        <p>MINED</p><strong class="text-indigo-300!">1,847</strong>
+      </article>
+      <article class="sky-stat">
+        <p>AVAILABLE</p><strong>2,444</strong>
+      </article>
+      <article class="sky-stat">
+        <p>MINING COST</p><strong class="text-amber-300! text-base!">0.00041 BNB</strong>
+      </article>
+    </section>
+
+    <section class="sky-card mt-4 px-4 py-6 text-center md:mt-5 md:py-7">
+      <p class="text-[10px] uppercase tracking-[.18em] text-slate-400">Est. cost to inscribe 1 block · now</p>
+      <h1
+        class="mt-2 bg-linear-to-r from-sky-300 via-white to-indigo-300 bg-clip-text font-display text-3xl font-black text-transparent md:text-5xl">
+        $0.72</h1>
+      <p class="mt-3 text-xs text-slate-400 md:text-sm">live gas <b class="text-white">0.08 Gwei</b> · BNB <b
+          class="text-white">$648.21</b> · <b class="text-white">4,291,419</b> gas/mine</p>
+    </section>
+
+    <section class="sky-card mt-4 p-4 md:p-4.5">
+      <div class="flex flex-wrap items-center gap-2 border-b border-sky-300/10 pb-3 text-xs text-slate-400 md:text-sm">
+        <span class="text-amber-300">✦</span><b class="text-white">@ElonWow_bot</b><span>· instant alerts on every Elon
+          “wow”</span></div><a href="https://t.me/ElonWow_bot" target="_blank" rel="noopener"
+        class="sky-button mt-3 block w-full py-3 text-center">CONNECT ALERTS TO TELEGRAM →</a>
+    </section>
+
+    <section id="about" class="sky-card mt-4 p-4 md:p-4.5">
+      <h2 class="sky-title">UNLOCK MINING</h2>
+      <p class="mt-3 text-xs leading-5 text-slate-400 md:text-sm">Connect your wallet and X account. Accounts with an X
+        score of <b class="text-white">10+</b> can unlock mining.</p>
+      <div class="mt-4 space-y-2.5">
+        <div class="sky-step"><span class="sky-number">1</span>
+          <div class="grow"><b>CONNECT X</b>
+            <p id="xStatus" class="text-xs text-slate-400">not connected</p>
+          </div><button id="xBtn" class="sky-ghost">CONNECT X</button>
+        </div>
+        <div class="sky-step"><span class="sky-number">2</span>
+          <div class="grow"><b>CHECK X SCORE</b>
+            <p id="scoreStatus" class="text-xs text-slate-400">needs wallet + X</p>
+          </div><button id="scoreBtn" disabled class="sky-button disabled:cursor-not-allowed disabled:opacity-40">CHECK
+            SCORE</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <div class="mb-4 flex items-center justify-between">
+        <h2 class="sky-title">RUNNING BLOCKS</h2><span class="text-[10px] text-slate-500 md:text-xs">LIVE MEMPOOL // 04
+          NODES</span>
+      </div>
+      <div class="running-row"><button class="lane-arrow" data-lane-direction="left">‹</button>
+        <div id="runningTrack" class="running-lane">
+          <article class="cube cube-green"><span>UPCOMING</span><b>#4294</b><small>awaiting</small><em>ELON “WOW”</em>
+          </article>
+          <article class="cube cube-green"><span>UPCOMING</span><b>#4293</b><small>awaiting</small><em>ELON “WOW”</em>
+          </article>
+          <article class="cube cube-green cube-next"><span>• NEXT</span><b>#4292</b><small>awaiting</small><em>ELON
+              “WOW”</em></article>
+          <div class="lane-divider"><span>⇅</span></div>
+          <article class="cube cube-purple"><span>• NEWEST</span><b>#4291</b><small>↖ FREE</small><em>MINE →</em>
+          </article>
+          <article class="cube cube-purple"><span>ACTIVE</span><b>#4290</b><small>↖ FREE</small><em>MINE →</em>
+          </article>
+        </div><button class="lane-arrow" data-lane-direction="right">›</button>
+      </div>
+      <div class="sky-card p-4">
+        <div class="mb-2 flex flex-col justify-between gap-1 text-xs text-slate-400 sm:flex-row"><span>MINING
+            STATUS</span><span><b class="text-white">1,847</b> MINED · <b class="text-white">2,444</b> ACTIVE / 4,291
+            TOTAL</span></div>
+        <div class="h-2.5 overflow-hidden rounded-full bg-slate-950">
+          <div class="h-full w-[43%] rounded-full bg-linear-to-r from-sky-400 to-indigo-500"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blocks" class="mt-8">
+      <div class="mb-4 flex items-center gap-3">
+        <h2 class="sky-title">BLOCKS TO MINE</h2><span class="hidden text-xs text-slate-500 sm:block">mine to reveal the
+          mosaic.</span>
+        <div class="grow"></div><button id="refreshBtn" class="sky-ghost">↻ REFRESH</button>
+      </div>
+      <div class="border border-sky-300/10 bg-[#050a16] p-1">
+        <div id="blockGrid" class="grid grid-cols-12 gap-px sm:grid-cols-20 md:grid-cols-28 lg:grid-cols-36"></div>
+      </div>
+    </section>
+
+    <footer class="mt-14 text-center text-xs leading-6 text-slate-500">PROOF OF WOW — EVERY MINED BLOCK LIVES ON-CHAIN
+      FOREVER.<br><span class="text-sky-300/70">SKY NETWORK // SYSTEM ONLINE</span></footer>
+  </main>
+  <div id="toast"
+    class="pointer-events-none fixed bottom-5 left-1/2 z-100 -translate-x-1/2 translate-y-5 rounded-xl border border-sky-300/20 bg-[#10182d] px-5 py-3 text-xs text-sky-200 opacity-0 shadow-xl transition-all">
+  </div>
+  <script>
+    const toast = document.querySelector('#toast'); const notify = m => { toast.textContent = m; toast.classList.remove('opacity-0', 'translate-y-5'); setTimeout(() => toast.classList.add('opacity-0', 'translate-y-5'), 2200) };
+    connectBtn.onclick = () => { connectBtn.textContent = '0x7F2...9A2'; notify('WALLET CONNECTED') }; xBtn.onclick = () => { xBtn.textContent = 'CONNECTED'; xStatus.textContent = '@wow_miner connected'; scoreStatus.textContent = 'ready to scan'; scoreBtn.disabled = false }; scoreBtn.onclick = () => notify('X SCORE: 84 // UNLOCKED'); refreshBtn.onclick = () => notify('BLOCK DATA REFRESHED');
+    document.querySelectorAll('[data-lane-direction]').forEach(b => b.onclick = () => runningTrack.scrollBy({ left: b.dataset.laneDirection === 'right' ? 320 : -320, behavior: 'smooth' }));
+    const ownedBlocks = new Set([7, 18, 34, 57, 83, 119, 146, 188, 219]);
+    Array.from({ length: 240 }, (_, i) => { const owned = ownedBlocks.has(i), c = document.createElement('button'); c.className = `group relative aspect-square transition hover:z-10 hover:scale-125 ${owned ? 'bg-gradient-to-br from-amber-300 via-amber-400 to-sky-400 shadow-[inset_0_0_0_1px_rgba(255,255,255,.45),0_0_10px_rgba(251,191,36,.35)]' : 'bg-gradient-to-br from-sky-900/75 via-blue-950/80 to-indigo-950/75 shadow-[inset_0_0_0_1px_rgba(125,211,252,.10)] hover:from-sky-800/80 hover:to-indigo-900/80'}`; c.title = `Block #${4052 + i}${owned ? ' · Owned by you' : ''}`; c.innerHTML = `${owned ? '<span class="absolute right-0.5 top-0 text-[6px] text-slate-950">◆</span>' : ''}<span class="absolute inset-0 grid place-items-center text-[6px] ${owned ? 'text-slate-950/70' : 'text-white/0 group-hover:text-white'}">${4052 + i}</span>`; c.onclick = () => notify(`BLOCK #${4052 + i} // ${owned ? 'OWNED BY YOU' : 'AVAILABLE'}`); blockGrid.appendChild(c) });
+  </script>
+</body>
+
+</html>

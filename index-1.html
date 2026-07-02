@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WOW Protocol cyberpunk mining dashboard">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet">
+  <link href="./dist/output.css" rel="stylesheet">
+  <title>WOW Protocol — Proof of WOW</title>
+</head>
+
+<body
+  class="min-h-screen overflow-x-hidden bg-[#05060c] font-mono text-[#dfe7ff] selection:bg-fuchsia-500 selection:text-white">
+  <div
+    class="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_-10%,rgba(0,240,255,.09),transparent_38%),radial-gradient(circle_at_90%_40%,rgba(255,43,209,.06),transparent_28%)]">
+  </div>
+
+  <header class="sticky top-0 z-50 border-b border-cyan-400/20 bg-[#060810]/90 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-310 flex-wrap items-center gap-2.5 px-4 py-3 md:flex-nowrap md:gap-4 md:px-7">
+      <a href="#" class="group flex items-center gap-2.5">
+        <span
+          class="cyber-cut grid size-8 place-items-center bg-linear-to-br from-cyan-300 to-fuchsia-500 text-sm shadow-[0_0_18px_rgba(0,240,255,.45)]">🤯</span>
+        <span
+          class="font-display text-sm font-extrabold leading-[1.05] tracking-[.13em] text-cyan-300 [text-shadow:0_0_14px_rgba(0,240,255,.55)] md:text-lg">WOW
+          PROTOCOL<br><small class="text-[9px] tracking-[.22em] text-fuchsia-400 md:text-[10px]">PROOF OF
+            WOW</small></span>
+      </a>
+      <div class="grow"></div>
+      <a href="#about" class="cyber-ghost hidden px-3 py-2 text-xs sm:block">✦ WHY WOW</a>
+      <a href="#blocks" class="cyber-ghost hidden px-3 py-2 text-xs sm:block">▧ GALLERY</a>
+      <div
+        class="cyber-cut hidden items-center gap-2 border border-cyan-300/60 px-3 py-1.5 text-xs text-cyan-300 lg:flex">
+        <span class="size-2 animate-pulse rounded-full bg-cyan-300 shadow-[0_0_9px_#00f0ff]"></span>BSC TESTNET</div>
+      <button id="connectBtn" class="cyber-button px-4 py-2 text-xs">CONNECT WALLET</button>
+    </nav>
+  </header>
+
+  <main class="mx-auto max-w-295 px-3.5 pb-20 pt-5 md:px-6 md:pt-7">
+    <section class="grid grid-cols-2 gap-2.5 md:grid-cols-4 md:gap-3">
+      <article class="stat-card">
+        <p>ACTIVE BLOCKS</p><strong>4,291</strong>
+      </article>
+      <article class="stat-card">
+        <p>MINED</p><strong class="text-fuchsia-400!">1,847</strong>
+      </article>
+      <article class="stat-card">
+        <p>AVAILABLE</p><strong>2,444</strong>
+      </article>
+      <article class="stat-card">
+        <p>MINING COST</p><strong class="text-fuchsia-400! text-base!">0.00041 BNB</strong>
+      </article>
+    </section>
+
+    <section class="panel mt-4 px-4 py-6 text-center md:mt-5 md:py-7">
+      <p class="text-[10px] uppercase tracking-[.18em] text-[#7a86b8]">Est. cost to inscribe 1 block · now</p>
+      <h1
+        class="mt-2 bg-linear-to-r from-cyan-300 via-white to-fuchsia-400 bg-clip-text font-display text-3xl font-black tracking-tight text-transparent [text-shadow:0_0_24px_rgba(0,240,255,.15)] md:text-5xl">
+        $0.72</h1>
+      <p class="mt-3 text-xs text-[#7a86b8] md:text-sm">live gas <b class="text-white">0.08 Gwei</b> · BNB <b
+          class="text-white">$648.21</b> · <b class="text-white">4,291,419</b> gas/mine <span
+          class="opacity-60">(SSTORE2)</span></p>
+    </section>
+
+    <section class="panel mt-4 p-4 md:p-4.5">
+      <div class="flex flex-wrap items-center gap-2 border-b border-[#15233f] pb-3 text-xs text-[#7a86b8] md:text-sm">
+        <span class="text-cyan-300">◈</span><b class="text-white">@ElonWow_bot</b><span>· free instant alerts on every
+          Elon “wow”</span></div>
+      <a href="https://t.me/ElonWow_bot" target="_blank" rel="noopener"
+        class="cyber-button mt-3 block w-full px-4 py-3 text-center text-xs md:text-sm">◢ CONNECT ALERTS TO TELEGRAM
+        →</a>
+    </section>
+
+    <section id="about" class="panel mt-4 p-4 md:p-4.5">
+      <h2 class="section-title">UNLOCK MINING</h2>
+      <p class="mt-3 max-w-4xl text-xs leading-5 text-[#7a86b8] md:text-sm">Mining is reserved for real X accounts.
+        Connect your wallet and your X — if your X score is <b class="text-white">10+</b>, the blocks unlock. <b
+          class="text-white">1 wallet = 1 X account.</b></p>
+      <div class="mt-4 space-y-2.5">
+        <div class="step-row">
+          <span class="step-number">1</span>
+          <div class="min-w-0 grow"><b class="text-sm">CONNECT X</b>
+            <p id="xStatus" class="text-xs text-[#7a86b8]">not connected</p>
+          </div><button id="xBtn" class="cyber-ghost px-4 py-2 text-xs">CONNECT X</button>
+        </div>
+        <div class="step-row">
+          <span class="step-number">2</span>
+          <div class="min-w-0 grow"><b class="text-sm">CHECK X SCORE</b>
+            <p id="scoreStatus" class="text-xs text-[#7a86b8]">needs wallet + X</p>
+          </div><button id="scoreBtn" disabled
+            class="cyber-button px-4 py-2 text-xs disabled:cursor-not-allowed disabled:opacity-40">CHECK SCORE</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <div class="mb-4 flex items-center justify-between">
+        <h2 class="section-title">RUNNING BLOCKS</h2><span class="text-[10px] text-[#5a6690] md:text-xs">LIVE MEMPOOL //
+          04 NODES</span>
+      </div>
+      <div class="running-row">
+        <button class="lane-arrow" data-lane-direction="left" aria-label="Previous blocks">‹</button>
+        <div id="runningTrack" class="running-lane">
+          <article class="cube cube-green"><span>UPCOMING</span><b>#4294</b><small>awaiting</small><em>ELON “WOW”</em>
+          </article>
+          <article class="cube cube-green"><span>UPCOMING</span><b>#4293</b><small>awaiting</small><em>ELON “WOW”</em>
+          </article>
+          <article class="cube cube-green"><span>UPCOMING</span><b>#4292</b><small>awaiting</small><em>ELON “WOW”</em>
+          </article>
+          <article class="cube cube-green cube-next"><span>• NEXT</span><b>#4291</b><small>awaiting</small><em>ELON
+              “WOW”</em></article>
+          <div class="lane-divider"><span>⇅</span></div>
+          <article class="cube cube-purple"><span>• NEWEST</span><b>#4290</b><small>↖ FREE</small><em>MINE →</em>
+          </article>
+          <article class="cube cube-purple"><span>ACTIVE</span><b>#4289</b><small>↖ FREE</small><em>MINE →</em>
+          </article>
+        </div>
+        <button class="lane-arrow" data-lane-direction="right" aria-label="Next blocks">›</button>
+      </div>
+      <div class="panel p-4">
+        <div class="mb-2 flex flex-col justify-between gap-1 text-xs text-[#7a86b8] sm:flex-row"><span>MINING
+            STATUS</span><span><b class="text-white">1,847</b> MINED · <b class="text-white">2,444</b> ACTIVE / <b
+              class="text-white">4,291</b> TOTAL BLOCKS</span></div>
+        <div class="h-2.5 border border-cyan-300/20 bg-[#04111c]">
+          <div class="h-full w-[43%] bg-linear-to-r from-cyan-300 to-fuchsia-500 shadow-[0_0_12px_#00f0ff]"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blocks" class="mt-8">
+      <div class="mb-4 flex flex-wrap items-center gap-3">
+        <h2 class="section-title">BLOCKS TO MINE</h2><span class="text-xs text-[#5a6690]">mine to reveal the
+          mosaic.</span>
+        <div class="grow"></div><button id="refreshBtn" class="cyber-ghost px-3 py-2 text-xs">↻ REFRESH</button>
+      </div>
+      <div class="border border-cyan-300/15 bg-[#04060d] p-1 shadow-[inset_0_0_30px_rgba(0,240,255,.025)]">
+        <div id="blockGrid" class="grid grid-cols-12 gap-px sm:grid-cols-20 md:grid-cols-28 lg:grid-cols-36"></div>
+      </div>
+    </section>
+
+    <footer class="mt-14 text-center text-xs leading-6 text-[#5a6690]">PROOF OF WOW — THE X LINK OF EVERY MINED BLOCK
+      LIVES ON-CHAIN FOREVER.<br><span class="text-cyan-300/70">SYSTEM ONLINE // BSC TESTNET</span></footer>
+  </main>
+
+  <div id="toast"
+    class="pointer-events-none fixed bottom-5 left-1/2 z-100 -translate-x-1/2 translate-y-5 border border-cyan-300/50 bg-[#0c0f1c] px-5 py-3 text-xs text-cyan-300 opacity-0 shadow-[0_0_24px_rgba(0,240,255,.25)] transition-all">
+  </div>
+  <script>
+    const toast = document.querySelector('#toast');
+    function notify(message) { toast.textContent = message; toast.classList.remove('opacity-0', 'translate-y-5'); setTimeout(() => toast.classList.add('opacity-0', 'translate-y-5'), 2200); }
+    const connectBtn = document.querySelector('#connectBtn');
+    connectBtn.addEventListener('click', () => { connectBtn.textContent = '0x7F2...9A2'; notify('WALLET CONNECTED // TEST MODE'); });
+    document.querySelector('#xBtn').addEventListener('click', (e) => { e.currentTarget.textContent = 'CONNECTED'; document.querySelector('#xStatus').textContent = '@wow_miner connected'; document.querySelector('#scoreStatus').textContent = 'ready to scan'; document.querySelector('#scoreBtn').disabled = false; notify('X ACCOUNT LINKED'); });
+    document.querySelector('#scoreBtn').addEventListener('click', () => notify('X SCORE: 84 // MINING UNLOCKED'));
+    document.querySelector('#refreshBtn').addEventListener('click', (e) => { e.currentTarget.classList.add('animate-spin'); setTimeout(() => { e.currentTarget.classList.remove('animate-spin'); notify('BLOCK DATA REFRESHED'); }, 650); });
+    const runningTrack = document.querySelector('#runningTrack');
+    document.querySelectorAll('[data-lane-direction]').forEach((button) => button.addEventListener('click', () => {
+      runningTrack.scrollBy({ left: button.dataset.laneDirection === 'right' ? 320 : -320, behavior: 'smooth' });
+    }));
+    const grid = document.querySelector('#blockGrid');
+    Array.from({ length: 240 }, (_, i) => {
+      const mined = i < 103 && (i % 3 !== 1);
+      const cell = document.createElement('button');
+      cell.className = `group relative aspect-square border transition duration-150 hover:z-10 hover:scale-125 ${mined ? 'border-fuchsia-400/25 bg-gradient-to-br from-fuchsia-500/35 via-violet-700/35 to-cyan-400/20' : 'border-cyan-300/20 bg-gradient-to-br from-[#0b3a63] to-[#071b34] hover:border-cyan-300 hover:shadow-[0_0_12px_#00f0ff]'}`;
+      cell.innerHTML = `<span class="absolute inset-0 grid place-items-center text-[6px] text-white/0 group-hover:text-white/90 md:text-[7px]">${4052 + i}</span>`;
+      cell.addEventListener('click', () => notify(`BLOCK #${4052 + i} // ${mined ? 'MINED' : 'AVAILABLE'}`));
+      grid.appendChild(cell);
+    });
+  </script>
+</body>
+
+</html>
